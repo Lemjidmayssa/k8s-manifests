@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ms-custom
+  name: ms-account
   namespace: argocd
 spec:
   destination:
