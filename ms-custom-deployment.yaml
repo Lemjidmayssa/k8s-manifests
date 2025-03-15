@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-custom
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-custom
+  template:
+    metadata:
+      labels:
+        app: ms-custom
+    spec:
+      containers:
+      - name: ms-custom
+        image: ms-custom:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8005
+        env:
+        - name: SPRING_DATASOURCE_URL
+          value: "jdbc:h2:mem:customerdb"
